@@ -26,8 +26,8 @@ Get-ServiceData
 $ComputerName = "$env:Computername"
 Function Get-ServiceData ($ComputerName)
   {
-    $service = Get-Service -ComputerName $Computername
-    Return $service
+    $Service = Get-Service -ComputerName $Computername
+    Return $Service
   }
 $Servicedata = Get-ServiceData -ComputerName $ComputerName
 
@@ -39,15 +39,16 @@ $Servicedata = Get-ServiceData -ComputerName $ComputerName
 #>
 ################
 #Best Practice #
+
 $ComputerName = "$env:Computername"
 $Servicedata = "No data"
 Function Get-ServiceData
   {
     [CmdletBinding(SupportsShouldProcess)]Param([string]$ComputerName)
     
-    $service = "Unable to retrieve data"
-    $service = Get-Service -ComputerName $Computername
-    Return [object]$service
+    $Service = "Unable to retrieve data"
+    $Service = Get-Service -ComputerName $Computername
+    Return [object]$Service
   }
 $Servicedata = Get-ServiceData -ComputerName $ComputerName
 
