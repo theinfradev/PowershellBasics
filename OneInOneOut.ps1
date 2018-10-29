@@ -1,5 +1,5 @@
 ##Note - I would not deploy this script as it does not have any checks in place. It just tries to create a new VM.
-The point of this script is to show how we can create a Contract, then a Function, Then Run it.
+##The point of this script is to show how we can create a Contract, then a Function, Then Run it.
 
 #########################
 ## Create Contract ##
