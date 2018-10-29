@@ -8,10 +8,10 @@
 # 1st style #
 
 $ComputerName = "$env:Computername"
-Function Get-ServiceData 
-  {
+Function Get-ServiceData
+{
     Get-Service -computername $ComputerName 
-  }
+}
 Get-ServiceData
 
 <# Attributes of this style.
@@ -25,10 +25,10 @@ Get-ServiceData
 
 $ComputerName = "$env:Computername"
 Function Get-ServiceData ($ComputerName)
-  {
+{
     $Service = Get-Service -ComputerName $Computername
     Return $Service
-  }
+}
 $Servicedata = Get-ServiceData -ComputerName $ComputerName
 
 <# Attributes of this style.
@@ -41,15 +41,16 @@ $Servicedata = Get-ServiceData -ComputerName $ComputerName
 #Best Practice #
 
 $ComputerName = "$env:Computername"
-$Servicedata = "No data"
 Function Get-ServiceData
-  {
+{
     [CmdletBinding(SupportsShouldProcess)]Param([string]$ComputerName)
     
     $Service = "Unable to retrieve data"
     $Service = Get-Service -ComputerName $Computername
     Return [object]$Service
-  }
+}
+
+$Servicedata = "No data"
 $Servicedata = Get-ServiceData -ComputerName $ComputerName
 
 <# Attributes of this style.
