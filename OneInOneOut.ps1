@@ -35,8 +35,10 @@ Class NewVMConfig
 ## Create Function ##
 #########################
 
-Function CreateNewVM ([NewVMConfig]$VM)
+Function CreateNewVM
 {
+    [CmdletBinding(SupportsShouldProcess)]Param([NewVMConfig]$VM)
+    
     $VMCheck = 'Unable to create VM correctly'
     New-VM -Name $VM.Name -Path $VM.VMPath -NewVHDPath $VM.NewVHDPath -NewVHDSizeBytes $VM.NewVHDSize -MemoryStartupBytes $VM.StartupMemory -BootDevice $VM.BootDevice -SwitchName $VM.NetworkSwitch -Generation $VM.Generation
     Set-VMDvdDrive -VMName $VM.Name -ControllerNumber 0 -ControllerLocation 2 -Path $VM.VMPath
